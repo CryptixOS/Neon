@@ -76,6 +76,19 @@ neon_dep = declare_dependency(
 )
 pkg.generate(neon)
 
+install_headers(
+  'Source/Neon/Core/Environment.hpp',
+
+  subdir: 'Neon/Core',
+)
+install_headers(
+  'Source/Neon/Filesystem/File.hpp',
+  'Source/Neon/Filesystem/VFS.hpp',
+
+  subdir: 'Neon/Filesystem',
+)
+
+
 
 dep = declare_dependency(
   compile_args: cxx_args,

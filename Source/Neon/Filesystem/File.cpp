@@ -8,10 +8,4 @@
 
 namespace Neon
 {
-    bool File::Access(PathView path, FileAccessMode mode) 
-    { 
-        IgnoreUnused(path);
-        IgnoreUnused(mode);
-        return false; 
-    }
 }; // namespace Neon

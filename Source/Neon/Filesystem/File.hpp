@@ -11,17 +11,4 @@
 namespace Neon
 {
     using namespace Prism;
-    enum class FileAccessMode : usize
-    {
-        eNone    = 0,
-        eRead    = 1,
-        eWrite   = 2,
-        eExecute = 3,
-    };
-
-    class File
-    {
-      public:
-        static bool Access(Prism::PathView path, FileAccessMode mode);
-    };
 }; // namespace Neon

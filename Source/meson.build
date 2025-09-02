@@ -7,5 +7,7 @@
 
 srcs = files(
   'Neon/Core/Entry.cpp',
+  'Neon/Core/Environment.cpp',
   'Neon/Filesystem/File.cpp',
+  'Neon/Filesystem/VFS.cpp',
 )
