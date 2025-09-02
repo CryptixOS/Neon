@@ -1,2 +1,2 @@
-# Cryptix-Template
-Template repository for CryptixOS project
+# Neon
+Posix API wrapper for CryptixOS

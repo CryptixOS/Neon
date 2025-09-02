@@ -4,7 +4,7 @@
 #*
 #* SPDX-License-Identifier: GPL-3
 #*/
-project('Cryptix-Template', ['c', 'cpp'],
+project('Neon', ['c', 'cpp'],
   version: 'v0.0.1', license: 'GPL-3.0',
   default_options: [
     'optimization=3',
@@ -38,9 +38,7 @@ cxx_args = [
 ]
 add_global_arguments(cxx_args, language: 'cpp')
 
-srcs = files(
-  'Source/main.cpp',
-)
+subdir('Source')
 incs = include_directories(
   'Source',
 )
@@ -59,11 +57,29 @@ deps = [
   dependency('prism'),
 ]
 
-executable(
-  'Cryptix-Template', srcs,
-  include_directories: incs, 
-  link_args: ['-lsupc++', '-lgcc_s'], 
-  dependencies: deps, install: true
+if build_tests
+subdir('Tests')
+endif
+
+pkg = import('pkgconfig')
+neon = static_library('neon',
+  srcs, cpp_args: cxx_args,
+  include_directories: incs,
+  dependencies: deps,
+  install: true,
 )
 
-subdir('Tests')
+neon_dep = declare_dependency(
+  include_directories : incs,
+  compile_args: cxx_args,
+  dependencies: deps, 
+)
+pkg.generate(neon)
+
+
+dep = declare_dependency(
+  compile_args: cxx_args,
+  include_directories: incs,
+  dependencies: neon_dep,
+  link_with: neon
+)
