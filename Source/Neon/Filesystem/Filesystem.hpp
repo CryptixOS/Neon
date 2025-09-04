@@ -30,10 +30,10 @@ namespace Neon
         return Prism::ToUnderlying(lhs) & Prism::ToUnderlying(rhs);
     }
 
-    namespace VFS
+    namespace Filesystem
     {
         using namespace Prism;
         ErrorOr<void> Access(PathView path, FileMode mode);
         ErrorOr<void> ChangeDirectory(PathView directory);
-    }; // namespace VFS
+    }; // namespace Filesystem
 }; // namespace Neon

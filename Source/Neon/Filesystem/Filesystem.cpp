@@ -4,13 +4,13 @@
  *
  * SPDX-License-Identifier: GPL-3
  */
-#include <Neon/Filesystem/VFS.hpp>
+#include <Neon/Filesystem/Filesystem.hpp>
 
 #include <unistd.h>
 
 namespace Neon
 {
-    namespace VFS
+    namespace Filesystem
     {
         ErrorOr<void> Access(PathView path, FileMode accessMode)
         {
@@ -31,5 +31,5 @@ namespace Neon
 
             return Error(errno);
         }
-    }; // namespace VFS
+    }; // namespace Filesystem
 }; // namespace Neon

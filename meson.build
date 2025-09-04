@@ -83,7 +83,7 @@ install_headers(
 )
 install_headers(
   'Source/Neon/Filesystem/File.hpp',
-  'Source/Neon/Filesystem/VFS.hpp',
+  'Source/Neon/Filesystem/Filesystem.hpp',
 
   subdir: 'Neon/Filesystem',
 )
